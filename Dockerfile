@@ -29,8 +29,6 @@ RUN set -x \
 ENV PATH /opt/kibana/bin:$PATH
 
 COPY ./docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
-RUN /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest
 EXPOSE 5601
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["kibana"]
