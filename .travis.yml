@@ -1,0 +1,25 @@
+language: java
+jdk:
+- oraclejdk8
+sudo: required
+services:
+- docker
+- memcached
+os:
+- linux
+env:
+  global:
+  - RDS_ADDRESS=127.0.0.1 
+# docker
+  - secure: KI+PFHIi5eK69XkUTRPpWks54yvHTYhuvZvpqq1OqVSJbIzkAseosLS3o1CDrW7cKTViM3Yo6m1IDTbkWQel89qCSO87U3Tq70V03W786IiaQf7tJsyFYjmognaQOOJ7rhn1GDNpM+l4iwDwJPtzld4yjzWXLxDbp/9pUxvqnW0To30MpaVnvwNmKIDtdAH0xUi94SP+gpAlLKJ/JSJpHID99oapmVY3KiI1USyzI6sgwaImhpQ7i98ehxPn/2Duslzz9jEgX+Jx4WLnmkNUABpikX3p31bXmxPBuGB4yOxh+bYcjm7+NLdUlLjmcbEowoXhCyohaX4EYONC31VRibabkZE/ii9sypOy8SL41W9zHDE9Zg+Q3nBv7BNNNKJXlwNQgIsNMwYo1XNmiTruFJ2EWYHzk6J39t3TiuF6k9K194AKDGzkPSr4bqULSyYIAOocWexNDx0gHqBaKfkDNs4sIEfY/Sodd6C28pGySismrM4iq9noEkx2WIz1RMaY8CNNHKrbM+RWfK1T4EB3IvIGV4p6g2rr4pXjSeMbRfLtFN4HJfApEY2GCQO120YEZUF40j3xAzwmc0LJdGw17Xm7aUjgYC7abVtpdygp4SzVJCzv94caxs9YkjwMBZxurg89+KkH4CNPHNVNDzXAZoNdV+ejrdA0o958MUkrqEs=
+
+install:
+script: ./deploy.sh
+cache:
+  bundler: true
+  apt: true
+  directories:
+  - $HOME/.m2
+  - $HOME/.cache/pip
+before_script:
+- chmod +x ./deploy.sh
