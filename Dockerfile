@@ -29,6 +29,8 @@ RUN set -x \
 ENV PATH /opt/kibana/bin:$PATH
 
 COPY ./docker-entrypoint.sh /
+RUN chmod +x /docker-entrypoint.sh
+COPY installedPlugins /opt/kibana/installedPlugins
 EXPOSE 5601
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["kibana"]
