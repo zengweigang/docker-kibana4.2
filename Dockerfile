@@ -29,7 +29,7 @@ RUN set -x \
 ENV PATH /opt/kibana/bin:$PATH
 
 COPY ./docker-entrypoint.sh /
-RUN $PATH/kibana plugin --install elasticsearch/marvel/latest
+RUN /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest
 EXPOSE 5601
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["kibana"]
